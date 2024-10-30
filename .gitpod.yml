@@ -2,32 +2,25 @@ image:
   file: .gitpod.dockerfile
 
 tasks:
-  - name: Start PostgreSQL
-    command: |
-      /home/gitpod/.pg_ctl/bin/pg_start > /dev/null
-
-  - name: Install Python Dependencies
-    command: |
-      pip install -r requirements.txt
-
-  - name: Install VS Code Extensions
+  - name: Setup Environment
     command: |
       for file in .vscode/extensions/*.vsix; do
         code --install-extension "$file" || true
       done
+      pip install -r requirements.txt
 
 vscode:
   extensions:
-    - PKief.material-icon-theme
-    - charliermarsh.ruff
-    - ms-python.python
-    - batisteo.vscode-django
-    - esbenp.prettier-vscode
-    - eamodio.gitlens
-    - mhutchie.git-graph
-    - donjayamanne.githistory
-    - formulahendry.auto-close-tag
-    - formulahendry.auto-rename-tag
-    - christian-kohler.path-intellisense
     - aaron-bond.better-comments
+    - batisteo.vscode-django
+    - charliermarsh.ruff
+    - christian-kohler.path-intellisense
+    - donjayamanne.githistory
+    - eamodio.gitlens
+    - esbenp.prettier-vscode
+    - formulahendry.auto-complete-tag
+    - mhutchie.git-graph
+    - ms-python.python
+    - PKief.material-icon-theme
+    - shamanu4.django-intellisense
     - yzhang.markdown-all-in-one
