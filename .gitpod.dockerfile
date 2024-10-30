@@ -41,6 +41,8 @@ RUN curl -fsSL https://pyenv.run | bash && \
     bandit \
     coverage \
     djlint \
+    django-extensions \
+    django-debug-toolbar \
     ipython \
     isort \
     mypy \
