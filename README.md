@@ -1,106 +1,80 @@
-This repository provides a simple Gitpod workspace template pre-configured for **Django development** with Python and Node.js, along with PostgreSQL and MongoDB support. It includes linters like Ruff and Djlint for maintaining code quality.
+# Project Title
 
----
+## User Experience
+
+### Site Goals
+<!-- Add content for Site Goals here -->
+
+### Scope
+<!-- Add content for Scope here -->
+
+## Design
+
+### Colour Scheme
+<!-- Add content for Colour Scheme here -->
+
+### Fonts
+<!-- Add content for Fonts here -->
+
+### Wireframes
+<!-- Add content for Wireframes here -->
+
+## Agile Methodology
+
+### Kanban Board
+<!-- Add content for Kanban Board here -->
+
+### User Stories
+<!-- Add content for User Stories Issues here -->
 
 ## Features
 
-- **Django Ready**: Quickly start building Django applications.
-- **Python Environment**: Python 3.13.0 & 3.12.7 managed via Pyenv.
-- **Node.js Environment**: Node.js 20.18.0 managed via NVM.
-- **Databases**:
-  - PostgreSQL 16
-  - MongoDB Shell (`mongosh`)
-- **Linters and Formatters**:
-  - **Ruff**: Fast Python linter. [Documentation](https://docs.astral.sh/ruff/configuration/)
-  - **Djlint**: Linter and formatter for Django templates. [Documentation](https://www.djlint.com/docs/configuration/)
-- **VS Code Extensions**: Pre-installed extensions for enhanced development.
+<!-- Add Features here -->
 
----
+### Error Pages
+<!-- Add content for Error Pages here -->
 
-## Getting Started
+### Future Features
+<!-- Add content for Future Features here -->
 
-### Open in Gitpod
+## Testing
 
-Click the button below to open this repository in Gitpod:
+### Manual Testing
+<!-- Add content for Manual Testing here -->
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/j0hanz/backend_template)
+## Bugs
 
-### Workspace Initialization
+### Known Bugs
+<!-- Add content for Known Bugs here -->
 
-The workspace will automatically set up your development environment, including installing dependencies and starting services.
+## Technologies And Languages
 
----
+### Languages Used
+<!-- Add content for Languages Used here -->
 
-## Using Ruff and Djlint in the Terminal
+### Technologies and Programs
+<!-- Add content for Technologies and Programs here -->
 
-### Ruff
+## Deployment
 
-Ruff is a fast Python linter that helps you maintain code quality. For detailed configuration options, refer to the [Ruff Documentation](https://docs.astral.sh/ruff/configuration/).
+<!-- Add content for Deployment here -->
 
-#### Linting Code with Ruff
+### Creating A Fork
+<!-- Add content for Creating A Fork here -->
 
-To lint your Python code:
+### Cloning Repository
+<!-- Add content for Cloning Repository here -->
 
-```bash
-ruff check path/to/your/code
-```
+## Credits
 
-Replace `path/to/your/code` with the directory or file you want to lint.
+### Media
+<!-- Add content for Media here -->
 
-#### Auto-fixing Issues
+### Code
+<!-- Add content for Code here -->
 
-Ruff can automatically fix certain issues:
+### Contributors
+<!-- Add content for Contributors here -->
 
-```bash
-ruff check path/to/your/code --fix
-```
-
-### Djlint
-
-Djlint is a tool for linting and formatting Django templates. For detailed configuration, see the [Djlint Documentation](https://www.djlint.com/docs/configuration/).
-
-#### Linting Templates
-
-To lint your Django templates:
-
-```bash
-djlint path/to/your/templates
-```
-
-#### Formatting Templates
-
-To format your templates:
-
-```bash
-djlint path/to/your/templates --reformat
-```
-
----
-
-## Starting and Stopping PostgreSQL
-
-Start PostgreSQL:
-
-```bash
-/home/gitpod/.pg_ctl/bin/pg_start
-```
-
-Stop PostgreSQL:
-
-```bash
-/home/gitpod/.pg_ctl/bin/pg_stop
-```
-
----
-
-## Customization
-
-- **Update Python or Node.js Versions**: Modify `PYTHON_VERSION` or `NODE_VERSION` in `.gitpod.dockerfile`.
-- **Adjust Linting Rules**: Edit `pyproject.toml` to change settings for Ruff and Djlint.
-  - **Ruff Configuration**: See the [Ruff Documentation](https://docs.astral.sh/ruff/configuration/) for available options.
-  - **Djlint Configuration**: Refer to the [Djlint Documentation](https://www.djlint.com/docs/configuration/) for configuration details.
-- **Add VS Code Extensions**: Update the `extensions` list in `.gitpod.yml`.
-
----
-
-Happy coding!
+### Acknowledgements
+<!-- Add content for Acknowledgements here -->
