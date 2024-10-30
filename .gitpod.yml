@@ -2,8 +2,13 @@ image:
   file: .gitpod.dockerfile
 
 tasks:
-  - command: |
+  - name: Start PostgreSQL
+    command: |
       /home/gitpod/.pg_ctl/bin/pg_start > /dev/null
+
+  - name: Install Python Dependencies
+    command: |
+      pip install -r requirements.txt
 
   - name: Install VS Code Extensions
     command: |
