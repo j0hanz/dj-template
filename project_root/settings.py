@@ -4,7 +4,6 @@ import os
 from pathlib import Path
 
 import dj_database_url
-from django.contrib.messages import constants as messages
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
@@ -19,7 +18,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
-    '.gitpod.io',
     '127.0.0.1',
     'localhost',
     '.herokuapp.com',
@@ -46,19 +44,6 @@ SITE_ID = 1
 # Redirects after login/logout to the homepage "/"
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-
-# Django Crispy Forms settings
-CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
-CRISPY_TEMPLATE_PACK = 'bootstrap5'
-
-# Maps alert message to Bootstrap CSS classes.
-MESSAGE_TAGS = {
-    messages.DEBUG: 'debug',
-    messages.INFO: 'info',
-    messages.SUCCESS: 'success',
-    messages.WARNING: 'warning',
-    messages.ERROR: 'danger',
-}
 
 # Middleware settings
 MIDDLEWARE = [
@@ -109,8 +94,6 @@ else:
 
 # CSRF trusted origins
 CSRF_TRUSTED_ORIGINS = [
-    'https://*.gitpod.io',
-    'https://*.codeinstitute-ide.net',
     'https://*.herokuapp.com',
 ]
 
@@ -138,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Berlin'
 USE_I18N = True
 USE_TZ = True
 
@@ -150,10 +133,13 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-# Cloudinary settings
-CLOUDINARY_STORAGE = {'CLOUDINARY_URL': os.getenv('CLOUDINARY_URL')}
-MEDIA_URL = '/media/'
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# Cloudinary Configuration
+cloudinary.config(
+    cloud_name=os.getenv('CLOUDINARY_NAME'),
+    api_key=os.getenv('CLOUDINARY_KEY'),
+    api_secret=os.getenv('CLOUDINARY_SECRET'),
+    secure = True,
+)
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
