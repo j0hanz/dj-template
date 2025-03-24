@@ -3,6 +3,7 @@
 import os
 from pathlib import Path
 
+import cloudinary
 import dj_database_url
 from dotenv import load_dotenv
 
@@ -31,12 +32,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cloudinary_storage',
     'django.contrib.sites',
     'cloudinary',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'core',
 ]
 
 SITE_ID = 1
@@ -63,7 +64,7 @@ ROOT_URLCONF = 'project_root.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,7 +139,7 @@ cloudinary.config(
     cloud_name=os.getenv('CLOUDINARY_NAME'),
     api_key=os.getenv('CLOUDINARY_KEY'),
     api_secret=os.getenv('CLOUDINARY_SECRET'),
-    secure = True,
+    secure=True,
 )
 
 # Default primary key field type

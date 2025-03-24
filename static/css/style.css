@@ -1,0 +1,35 @@
+/* Main styling */
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  background-color: #181d27;
+  color: #c1cad2;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.navbar,
+.footer {
+  background-color: #0c4b33;
+}
+
+.btn-count {
+  background-color: #0c4b33;
+  color: #c1cad2;
+  font-weight: 500;
+  border: none;
+  font-size: 1.25rem;
+  border-radius: 10px;
+}
+
+.btn-count:hover {
+  background-color: #083624;
+  color: #c1cad2;
+}

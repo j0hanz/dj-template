@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+  Home
+{% endblock %}
+
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-8 offset-md-2 text-center">
+      <img src="{% static 'images/dj_logo.svg' %}"
+           alt="Django logo"
+           class="img-fluid w-25" />
+      <div>
+
+        <div class="h2 my-4">
+          Ready to code!
+        </div>
+        <div class="p-0">
+          <button id="countButton"
+                  class="btn btn-count w-50 py-3">
+            Button:<span id="count"
+      class="ms-2">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
