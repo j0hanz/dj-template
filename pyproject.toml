@@ -1,3 +1,6 @@
+# DJLint Configuration
+# Documentation: https://www.djlint.com/docs/getting-started/
+
 [tool.djlint]
 blank_line_after_tag = "load,extends,include,endblock"
 close_void_tags = true
@@ -12,12 +15,14 @@ preserve_blank_lines = true
 profile = "django"
 use_gitignore = true
 
+# Ruff Configuration
+# Documentation: https://docs.astral.sh/ruff/
+
 [tool.ruff]
 exclude = [
     ".direnv",
     ".git",
     ".hg",
-    ".mypy_cache",
     ".nox",
     ".svn",
     ".tox",
@@ -40,27 +45,28 @@ exclude = [
 ]
 line-length = 79
 indent-width = 4
-target-version = "py313"
+target-version = "py312"
 
 [tool.ruff.lint]
 ignore = [
     "Q000",
     "Q001",
     "Q003",
-    "F401",
-    "DJ001",
-    "PLR",
 ]
 select = [
+    "C",
     "E4",
     "E7",
     "E9",
+    "EM",
     "F",
     "DJ",
     "Q",
     "I",
     "UP",
     "PL",
+    "PIE",
+    "W",
 ]
 
 [tool.ruff.lint.flake8-quotes]
@@ -72,7 +78,11 @@ docstring-quotes = "double"
     "F403",
     "F405",
 ]
-"tests.py" = ["F401"]
+"tests.py" = [
+    "F401",
+]
 
 [tool.ruff.format]
 quote-style = "single"
+docstring-code-format = true
+docstring-code-line-length = "dynamic"
