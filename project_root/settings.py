@@ -26,6 +26,7 @@ ALLOWED_HOSTS = [
 
 # Application definition
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -119,6 +120,14 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Jazzmin settings https://django-jazzmin.readthedocs.io/configuration/
+JAZZMIN_SETTINGS = {
+    'site_title': 'Django',
+    'site_header': 'Django',
+    'site_logo': 'images/admin/img/dj_brand.png',
+    'welcome_sign': '',
+}
 
 # Internationalization
 LANGUAGE_CODE = 'en-us'
