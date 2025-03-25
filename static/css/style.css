@@ -24,7 +24,7 @@ main {
   height: 3rem;
   font-weight: 500;
   border: none;
-  font-size: 1.25rem;
+  font-size: 1.25em;
   border-radius: 10px;
   transition: all 0.3s;
 }
