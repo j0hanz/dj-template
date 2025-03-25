@@ -121,14 +121,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Jazzmin settings https://django-jazzmin.readthedocs.io/configuration/
-JAZZMIN_SETTINGS = {
-    'site_title': 'Django',
-    'site_header': 'Django',
-    'site_logo': 'images/admin/img/dj_brand.png',
-    'welcome_sign': '',
-}
-
 # Internationalization
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Europe/Berlin'
@@ -153,3 +145,62 @@ cloudinary.config(
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Jazzmin settings https://django-jazzmin.readthedocs.io/configuration/
+JAZZMIN_SETTINGS = {
+    'site_title': 'Django',
+    'site_brand': 'Django Admin',
+    'site_header': 'Django',
+    'site_logo': 'images/admin/img/dj_logo.png',
+    'site_logo_classes': 'img-circle',
+    'welcome_sign': '',
+    'topmenu_links': [
+        {
+            'name': 'Home',
+            'url': 'admin:index',
+            'permissions': ['auth.view_user'],
+        },
+        {'model': 'auth.User'},
+        {
+            'name': 'Support',
+            'url': 'https://github.com/farridav/django-jazzmin/issues',
+            'new_window': True,
+        },
+        {'app': 'core'},
+    ],
+    'usermenu_links': [
+        {
+            'name': 'Profile',
+            'url': 'admin:auth_user_change',
+            'args': [lambda request: request.user.id],
+        },
+        {
+            'name': 'Documentation',
+            'url': 'https://docs.djangoproject.com/',
+            'new_window': True,
+        },
+    ],
+    'related_modal_active': True,
+    'show_sidebar': True,
+    'navigation_expanded': True,
+    'hide_apps': [],
+    'hide_models': [],
+    'order_with_respect_to': ['auth', 'core'],
+    'icons': {
+        'auth': 'fas fa-users-cog',
+        'auth.user': 'fas fa-user',
+        'auth.Group': 'fas fa-users',
+        'core': 'fas fa-cogs',
+    },
+    'default_icon_parents': 'fas fa-folder',
+    'default_icon_children': 'fas fa-file',
+}
+
+# Jazzmin UI tweaks https://django-jazzmin.readthedocs.io/ui_customisation/
+JAZZMIN_UI_TWEAKS = {
+    'navbar': 'navbar-dark',
+    'no_navbar_border': False,
+    'navbar_fixed': False,
+    'footer_fixed': False,
+    'dark_mode_theme': None,
+}
