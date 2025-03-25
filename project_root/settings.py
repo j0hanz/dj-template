@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.http.ConditionalGetMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -60,7 +61,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [BASE_DIR / 'templates'],
-        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -68,9 +68,19 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'loaders': [
+                (
+                    'django.template.loaders.cached.Loader',
+                    [
+                        'django.template.loaders.filesystem.Loader',
+                        'django.template.loaders.app_directories.Loader',
+                    ],
+                ),
+            ],
         },
     },
 ]
+
 
 # WSGI configuration
 WSGI_APPLICATION = 'project_root.wsgi.application'
@@ -81,11 +91,13 @@ if 'DEV' in os.environ:
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
+            'CONN_MAX_AGE': 60,
         }
     }
     print('Development environment')
 else:
     DATABASES = {'default': dj_database_url.parse(os.getenv('DATABASE_URL'))}
+    DATABASES['default']['CONN_MAX_AGE'] = 60
     print('Production environment')
 
 # Authentication configuration
@@ -170,11 +182,7 @@ JAZZMIN_SETTINGS = {
         {'app': 'core'},
     ],
     'usermenu_links': [
-        {
-            'name': 'Profile',
-            'url': 'admin:auth_user_change',
-            'args': [lambda request: request.user.id],
-        },
+        {'model': 'auth.user'},
         {
             'name': 'Documentation',
             'url': 'https://docs.djangoproject.com/',
