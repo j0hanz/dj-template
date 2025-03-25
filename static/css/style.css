@@ -23,13 +23,21 @@ main {
 .btn-count {
   background-color: #0c4b33;
   color: #c1cad2;
+  width: 100%;
+  height: 3rem;
   font-weight: 500;
   border: none;
   font-size: 1.25rem;
   border-radius: 10px;
+  transition: all 0.3s;
 }
 
 .btn-count:hover {
   background-color: #083624;
+  color: #c1cad2;
+}
+
+.btn-count:active {
+  background-color: #0c4b33;
   color: #c1cad2;
 }
