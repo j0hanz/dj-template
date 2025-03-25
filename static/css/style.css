@@ -4,8 +4,6 @@ body {
   flex-direction: column;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   min-height: 100vh;
-  background-color: #181d27;
-  color: #c1cad2;
 }
 
 main {
@@ -15,8 +13,7 @@ main {
   flex: 1;
 }
 
-.navbar,
-.footer {
+.navbar {
   background-color: #0c4b33;
 }
 
