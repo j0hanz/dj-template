@@ -37,7 +37,13 @@ pip install -r requirements.txt
 python manage.py migrate
 ```
 
-### 5️⃣ Run Server
+### 5️⃣ Create Superuser
+
+```bash
+python manage.py createsuperuser
+```
+
+### 6️⃣ Run Server
 
 ```bash
 python manage.py runserver
