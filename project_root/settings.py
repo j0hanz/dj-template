@@ -10,14 +10,12 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-# Get the secret key from environment variables
-SECRET_KEY = os.getenv('SECRET_KEY')
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# Path configuration
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Security settings
+SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = 'DEV' in os.environ
-
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
@@ -41,13 +39,7 @@ INSTALLED_APPS = [
     'core',
 ]
 
-SITE_ID = 1
-
-# Redirects after login/logout to the homepage "/"
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
-
-# Middleware settings
+# Middleware configuration
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -60,8 +52,10 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
 ]
 
+# URL configuration
 ROOT_URLCONF = 'project_root.urls'
 
+# Template configuration
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -73,15 +67,15 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.request',
             ],
         },
     },
 ]
 
+# WSGI configuration
 WSGI_APPLICATION = 'project_root.wsgi.application'
 
-# Database settings
+# Database configuration
 if 'DEV' in os.environ:
     DATABASES = {
         'default': {
@@ -94,12 +88,7 @@ else:
     DATABASES = {'default': dj_database_url.parse(os.getenv('DATABASE_URL'))}
     print('Production environment')
 
-# CSRF trusted origins
-CSRF_TRUSTED_ORIGINS = [
-    'https://*.herokuapp.com',
-]
-
-# Authentication backend settings
+# Authentication configuration
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
@@ -127,15 +116,30 @@ TIME_ZONE = 'Europe/Berlin'
 USE_I18N = True
 USE_TZ = True
 
-# Static files (CSS, JavaScript, images)
+# Static files configuration
 STATIC_URL = '/static/'
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' (Uncomment this line for production)
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' (Uncomment for production)
 
-# Cloudinary Configuration
+# Default field type
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Security configuration
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.herokuapp.com',
+]
+
+# Site configuration
+SITE_ID = 1
+
+# Authentication settings
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+# Cloudinary configuration
 cloudinary.config(
     cloud_name=os.getenv('CLOUDINARY_NAME'),
     api_key=os.getenv('CLOUDINARY_KEY'),
@@ -143,10 +147,7 @@ cloudinary.config(
     secure=True,
 )
 
-# Default primary key field type
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Jazzmin settings https://django-jazzmin.readthedocs.io/configuration/
+# Jazzmin admin theme settings
 JAZZMIN_SETTINGS = {
     'site_title': 'Django',
     'site_brand': 'Django Admin',
@@ -196,7 +197,6 @@ JAZZMIN_SETTINGS = {
     'default_icon_children': 'fas fa-file',
 }
 
-# Jazzmin UI tweaks https://django-jazzmin.readthedocs.io/ui_customisation/
 JAZZMIN_UI_TWEAKS = {
     'navbar': 'navbar-dark',
     'no_navbar_border': False,
