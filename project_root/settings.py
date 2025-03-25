@@ -160,12 +160,12 @@ cloudinary.config(
 )
 
 # Jazzmin admin theme settings
+# https://django-jazzmin.readthedocs.io/configuration/
 JAZZMIN_SETTINGS = {
     'site_title': 'Django',
-    'site_brand': 'Django Admin',
+    'site_brand': 'admin panel',
     'site_header': 'Django',
-    'site_logo': 'images/admin/img/dj_logo.png',
-    'site_logo_classes': 'img-circle',
+    'site_logo': 'images/favicon.ico',
     'welcome_sign': '',
     'topmenu_links': [
         {
@@ -174,12 +174,12 @@ JAZZMIN_SETTINGS = {
             'permissions': ['auth.view_user'],
         },
         {'model': 'auth.User'},
+        {'app': 'core'},
         {
-            'name': 'Support',
-            'url': 'https://github.com/farridav/django-jazzmin/issues',
+            'name': 'Site',
+            'url': '/',
             'new_window': True,
         },
-        {'app': 'core'},
     ],
     'usermenu_links': [
         {'model': 'auth.user'},
@@ -193,7 +193,11 @@ JAZZMIN_SETTINGS = {
     'show_sidebar': True,
     'navigation_expanded': True,
     'hide_apps': [],
-    'hide_models': [],
+    'hide_models': [
+        'socialaccount.SocialApp',
+        'socialaccount.SocialAccount',
+        'socialaccount.SocialToken',
+    ],
     'order_with_respect_to': ['auth', 'core'],
     'icons': {
         'auth': 'fas fa-users-cog',
@@ -202,13 +206,13 @@ JAZZMIN_SETTINGS = {
         'core': 'fas fa-cogs',
     },
     'default_icon_parents': 'fas fa-folder',
-    'default_icon_children': 'fas fa-file',
+    'default_icon_children': 'fas fa-folder',
 }
 
+# Jazzmin UI tweaks
+# https://django-jazzmin.readthedocs.io/ui_customisation/
 JAZZMIN_UI_TWEAKS = {
     'navbar': 'navbar-dark',
-    'no_navbar_border': False,
-    'navbar_fixed': False,
-    'footer_fixed': False,
+    'no_navbar_border': True,
     'dark_mode_theme': None,
 }
