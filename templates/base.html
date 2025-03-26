@@ -16,7 +16,7 @@
          " />
         <!-- Favicon -->
         <link rel="icon"
-              href="{% static 'images/favicon.ico' %}"
+              href="{% static "images/favicon.ico" %}"
               type="image/x-icon" />
         <title>
 
@@ -27,45 +27,41 @@
         </title>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet"
-              href="{% static 'css/bootstrap.min.css' %}" />
+              href="{% static "css/bootstrap.min.css" %}" />
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+        <link rel="stylesheet" href="{% static "css/style.css" %}" />
       </head>
       <body>
+        {% include "partials/svg_sprite.html" %}
+
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
           <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">
-              <img src="{% static 'images/dj-logo.png' %}"
+            <a class="navbar-brand" href="{% url "home" %}">
+              <img src="{% static "images/dj-logo.png" %}"
                    alt="Django Logo"
                    height="35" />
             </a>
-            <button class="navbar-toggler"
+            <button class="bg-transparent border-0 d-lg-none"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#navbarNav">
-              <span class="navbar-toggler-icon"></span>
+              <svg class="icon icon-tabler" width="35" height="35">
+                <use xlink:href="{% static "images/sprites.svg" %}#icon-menu"></use>
+              </svg>
+              <svg class="icon icon-tabler d-none" width="35" height="30">
+                <use xlink:href="{% static "images/sprites.svg" %}#icon-x"></use>
+              </svg>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav ms-auto">
                 <!-- Admin panel -->
                 <li class="nav-item">
                   <a class="nav-link"
-                     href="{% url 'admin:index' %}"
+                     href="{% url "admin:index" %}"
                      target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                         width="20"
-                         height="20"
-                         viewBox="0 0 24 24"
-                         fill="none"
-                         stroke="currentColor"
-                         stroke-width="2"
-                         stroke-linecap="round"
-                         stroke-linejoin="round"
-                         class="icon icon-tabler icons-tabler-outline icon-tabler-settings-2">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M19.875 6.27a2.225 2.225 0 0 1 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z" />
-                      <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                    <svg class="icon icon-tabler" width="20" height="20">
+                      <use xlink:href="{% static "images/sprites.svg" %}#icon-settings"></use>
                     </svg>
                   Admin Panel</a>
                 </li>
@@ -74,22 +70,8 @@
                   <a class="nav-link"
                      href="https://docs.djangoproject.com/en/stable/"
                      target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                         width="20"
-                         height="20"
-                         viewBox="0 0 24 24"
-                         fill="none"
-                         stroke="currentColor"
-                         stroke-width="2"
-                         stroke-linecap="round"
-                         stroke-linejoin="round"
-                         class="icon icon-tabler icons-tabler-outline icon-tabler-book">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-                      <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
-                      <path d="M3 6l0 13" />
-                      <path d="M12 6l0 13" />
-                      <path d="M21 6l0 13" />
+                    <svg class="icon icon-tabler" width="20" height="20">
+                      <use xlink:href="{% static "images/sprites.svg" %}#icon-book"></use>
                     </svg>
                   Documentation</a>
                 </li>
@@ -97,34 +79,17 @@
                 <li class="nav-item">
                   <button class="btn nav-link d-flex align-items-center gap-1"
                           id="darkModeToggle">
-                    <svg xmlns="http://www.w3.org/2000/svg"
+                    <svg class="icon icon-tabler"
                          width="20"
                          height="20"
-                         fill="none"
-                         class="icon icon-tabler icons-tabler-outline icon-tabler-moon"
-                         viewBox="0 0 24 24"
-                         stroke="currentColor"
-                         stroke-width="2"
-                         stroke-linecap="round"
-                         stroke-linejoin="round"
                          id="darkModeIcon">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+                      <use xlink:href="{% static "images/sprites.svg" %}#icon-moon"></use>
                     </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg"
+                    <svg class="icon icon-tabler d-none"
                          width="20"
                          height="20"
-                         viewBox="0 0 24 24"
-                         fill="none"
-                         stroke="currentColor"
-                         stroke-width="2"
-                         stroke-linecap="round"
-                         stroke-linejoin="round"
-                         class="d-none icon icon-tabler icons-tabler-outline icon-tabler-sun"
                          id="lightModeIcon">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
-                      <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
+                      <use xlink:href="{% static "images/sprites.svg" %}#icon-sun"></use>
                     </svg>
                     <span>Theme</span>
                   </button>
@@ -143,27 +108,17 @@
         <!-- Footer -->
         <footer class="footer py-3">
           <div class="text-center">
-            <svg xmlns="http://www.w3.org/2000/svg"
-                 width="20"
-                 height="20"
-                 viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="2"
-                 stroke-linecap="round"
-                 stroke-linejoin="round"
-                 class="icon icon-tabler icons-tabler-outline icon-tabler-copyright">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" />
-              <path d="M14 9.75a3.016 3.016 0 0 0 -4.163 .173a2.993 2.993 0 0 0 0 4.154a3.016 3.016 0 0 0 4.163 .173" />
+            <svg class="icon icon-tabler" width="20" height="20">
+              <use xlink:href="{% static "images/sprites.svg" %}#icon-copyright"></use>
             </svg>
             {% now "Y" %} All rights reserved.
           </div>
         </footer>
         <!-- Bootstrap JS -->
-        <script src="{% static 'js/bootstrap.bundle.min.js'%}"></script>
+        <script src="{% static "js/bootstrap.bundle.min.js" %}"></script>
         <!-- Custom JS -->
-        <script src="{% static 'js/theme.js' %}"></script>
-        <script src="{% static 'js/script.js' %}"></script>
+        <script src="{% static "js/theme.js" %}"></script>
+        <script src="{% static "js/menu.js" %}"></script>
+        <script src="{% static "js/script.js" %}"></script>
       </body>
     </html>
